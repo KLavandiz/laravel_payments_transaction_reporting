@@ -1,2 +1,2 @@
 ## Live URL
-https://api.lavandiz.com
+http://lavandiz.com/api/public/api/v3/merchant/user/login
