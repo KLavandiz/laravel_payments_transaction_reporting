@@ -1,8 +1,8 @@
 ## Live URL   [Project deployed on a shared hosting ]<br/>
 https://lavandiz.com/api/v3/merchant/user/login
 <br/>
-Email :  demo@financialhouse.io<br/>
-Passord : cjaiU8CV
+email :  demo@financialhouse.io<br/>
+password : cjaiU8CV
 </br>
 <hr/>
 https://lavandiz.com/api/v3/transactions <br/>
