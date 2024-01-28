@@ -22,3 +22,6 @@ php artisan passport:install <br/>
 
 php artisan passport:client --personal <br/>
 
+## Postman collection<br/>
+public/docs/collection.json
+
