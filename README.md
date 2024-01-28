@@ -10,3 +10,16 @@ https://lavandiz.com/api/public/api/v3/transactions <br/>
 https://lavandiz.com/api/public/api/v3/transactions/report <br/>
 https://lavandiz.com/api/public/api/v3/transactions/list <br/>
 https://lavandiz.com/api/public/api/v3/client <br/>
+
+## Installation <br/>
+
+composer update <br/>
+
+php artisan migrate <br/>
+
+php artisan db:seed <br/>
+
+php artisan passport:install <br/>
+
+php artisan passport:client --personal <br/>
+
