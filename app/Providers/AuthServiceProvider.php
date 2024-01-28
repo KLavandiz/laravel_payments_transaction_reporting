@@ -28,8 +28,7 @@ class AuthServiceProvider extends ServiceProvider
 
     public function register()
     {
-        // Bind AuthRepository to service container for dependency injection.
-        $this->app->bind(IAuth::class, AuthRepository::class);
+
 
     }
 }
