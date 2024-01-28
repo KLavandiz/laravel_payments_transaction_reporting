@@ -22,7 +22,6 @@ class AuthController extends Controller
 
     public function login(AuthRequest $request): jsonResponse
     {
-        Transaction::factory(5);
         //Validate email and password and create user object to pass service layer.
         $user = $request->validateUser($request->rules(), $request->messages());
 
