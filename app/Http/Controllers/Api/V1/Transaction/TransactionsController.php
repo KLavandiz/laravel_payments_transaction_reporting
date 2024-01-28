@@ -18,7 +18,7 @@ class TransactionsController extends Controller
         $this->transactionService = $service;
     }
 
-    public function report(Request $request): JsonResponse
+    public function report(FilterRequest $request): JsonResponse
     {
         $report = $this->transactionService->getReport($request);
 
