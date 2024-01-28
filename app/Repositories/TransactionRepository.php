@@ -75,8 +75,6 @@ class TransactionRepository implements ITransaction
                 ->where($transParameters)->
                 whereHas('acquirer', function ($query) use ($acquirerParameters) {
                     $query->where($acquirerParameters);
-                })->whereHas('acquirer', function ($query) use ($acquirerParameters) {
-                    $query->where($acquirerParameters);
                 })->paginate();
         }
         if (!$transaction->count()) {
