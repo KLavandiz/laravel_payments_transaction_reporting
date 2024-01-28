@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Transaction;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Transaction\FilterRequest;
 use App\Http\Requests\Transaction\TransactionRequest;
 use App\Services\TransactionService;
 use Illuminate\Http\JsonResponse;
@@ -24,7 +25,7 @@ class TransactionsController extends Controller
         return $this->success($report);
     }
 
-    public function list(Request $request): JsonResponse
+    public function list(FilterRequest $request): JsonResponse
     {
         return $this->success($this->transactionService->getList($request)->getArray());
     }

@@ -24,7 +24,7 @@ Route::middleware('auth:passport')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v3', 'namespace' => 'App\Http\Controllers\Api\V3'], function () {
 
-    Route::middleware('auth:api')->group(function () {
+
 
         Route::group(["prefix" => "transactions"], function () {
 
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'v3', 'namespace' => 'App\Http\Controllers\Api\V3'], f
 
         });
 
-    });
+
 
     Route::group(["prefix" => "merchant"], function () {
 

@@ -15,5 +15,13 @@ return [
 
     'transactionId' => 'Transaction ID required.',
     'notFound' => 'Transaction not found',
-
+    'fromDate'=> 'fromDate must be date format',
+    'toDate'=> 'toDate must be date format',
+    'status'=> 'status must be string format',
+    'operation'=> 'operation must be string format',
+    'merchantId'=> 'merchantId must be string format',
+    'acquirerId'=> 'acquirerId must be string format',
+    'errorCode'=> 'errorCode must be string format',
+    'filterValue'=> 'filterValue must not be empty',
+    'invalidFilterKey' => 'Invalid FilterKey is provided'
 ];

@@ -44,7 +44,7 @@ class Handler extends ExceptionHandler
         }
 
         if ($e instanceof MethodNotAllowedHttpException) {
-            return $this->fail($e->getCode(), $e->getMessage());
+            return $this->fail(405, $e->getMessage());
         }
 
 

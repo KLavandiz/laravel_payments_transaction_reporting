@@ -2,13 +2,12 @@
 
 namespace App\Repositories;
 
-use App\DTO\ReportDTO;
+
 use App\Exceptions\GeneralException;
+use App\Facade\FilterFacade;
 use App\Facade\StatusFacade;
-use App\Filters\BaseFilters;
 use App\Filters\CustomFilters;
 use App\Filters\Transaction\ListFilters;
-use App\Filters\Transaction\TransactionFilters;
 use App\Http\Resources\Transaction\ReportCollection;
 use App\Http\Resources\Transaction\TransactionCollection;
 use App\Interfaces\ITransaction;
@@ -40,18 +39,46 @@ class TransactionRepository implements ITransaction
      */
     public function getList(Request $request): TransactionCollection
     {
+        $safeKeyArray = FilterFacade::FILTER_FIELDS;
+        $filterField = data_get($request, 'filterField', -1);
+        $filterValue = data_get($request, 'filterValue', -1);
+
+        if (($filterField != -1) && !array_key_exists($filterField, $safeKeyArray)) {
+
+            if (!isset($safeKeyArray[$filterField])) {
+                throw new GeneralException(__('transaction.invalidFilterKey'), 404);
+            }
+
+        }
+
+
         $filter = new ListFilters();
 
         $transParameters = $filter->getTransactionQuery($request);
 
         $acquirerParameters = $filter->getAcquirersQuery($request);
 
-        $transaction = Transaction::with(['acquirer', 'agent', 'client', 'fx', 'merchant'])->where($transParameters)->
-        whereHas('acquirer', function ($query) use ($acquirerParameters) {
-            $query->where($acquirerParameters);
-        })
-            ->paginate();
 
+        if ($filterField != -1) {
+            $keys = array_keys($safeKeyArray[$filterField]);
+            $tableName = $safeKeyArray[$filterField][$keys[0]];
+            $columnName = $keys[0];
+
+            $transaction = Transaction::with(['acquirer', 'agent', 'client', 'fx', 'merchant'])->where($transParameters)->
+            whereHas('acquirer', function ($query) use ($acquirerParameters) {
+                $query->where($acquirerParameters);
+            })->whereHas($tableName, function ($query) use ($columnName, $filterValue) {
+                $query->where($columnName, $filterValue);
+            })->paginate();
+        } else {
+            $transaction = Transaction::with(['acquirer', 'agent', 'client', 'fx', 'merchant'])->where($transParameters)
+                ->where($transParameters)->
+                whereHas('acquirer', function ($query) use ($acquirerParameters) {
+                    $query->where($acquirerParameters);
+                })->whereHas('acquirer', function ($query) use ($acquirerParameters) {
+                    $query->where($acquirerParameters);
+                })->paginate();
+        }
         if (!$transaction->count()) {
 
             throw new GeneralException(__('transaction.notFound'), 404);

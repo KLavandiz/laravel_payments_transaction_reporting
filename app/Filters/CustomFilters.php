@@ -14,10 +14,10 @@ class CustomFilters
         'operation' => array(0 => 'transactions.operation', 1 => '='),
         'merchantId' => array(0 => 'transactions.merchant_id', 1 => '='),
         'acquirerId' => array(0 => 'transactions.acquirer_transaction_id', 1 => '=')
-        ,'errorCode' => array(0 => 'transactions.message', 1 => '=')
+    ,   'errorCode' => array(0 => 'transactions.message', 1 => '=')
     );
 
-    public array $acquirersParams = array('paymentMethod' => array(0=>'acquirers.type',1=>'='));
+    public array $acquirersParams = array('paymentMethod' => array(0 => 'acquirers.type', 1 => '='));
 
     public function getTransactionQuery(Request $request)
     {
