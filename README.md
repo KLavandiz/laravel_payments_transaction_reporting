@@ -1,5 +1,5 @@
-## Live URL   [Project deployed on a sharing hosting ]<br/>
-<h4>Api links a bit long .htaccess does not works properly</h4>
+## Live URL   [Project deployed on a shared hosting ]<br/>
+<h4>Api links a bit long .htaccess does not work properly</h4>
 https://lavandiz.com/api/public/api/v3/merchant/user/login
 <br/>
 Email : demo@financialhouse.io,<br/>
