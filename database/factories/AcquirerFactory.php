@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Facade\MethodFacade;
+use App\Enum\MethodEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +19,7 @@ class AcquirerFactory extends Factory
     {
         $name = strtoupper(fake()->word)." BANK";
         $code = substr($name,0,1)."B";
-        $type = [MethodFacade::CEPBANK,MethodFacade::CITADEL,MethodFacade::CUP,MethodFacade::CREDITCARD,MethodFacade::IDEAL];
+        $type = [MethodEnum::CEPBANK,MethodEnum::CITADEL,MethodEnum::CUP,MethodEnum::CREDITCARD,MethodEnum::IDEAL];
         return [
             'name'=>$name,
             'code'=>$code,

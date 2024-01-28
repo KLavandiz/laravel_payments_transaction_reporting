@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Facade;
+namespace App\Enum;
 
-class MessageFacade
+enum MessageEnum
 {
     const DONT_HONOR = 'Do not honor';
     const INVALID_TRANSACTION = 'Invalid Transaction';

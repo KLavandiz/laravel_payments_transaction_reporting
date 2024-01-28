@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Facade;
+namespace App\Enum;
 
-class OperationFacade
+enum OperationEnum
 {
     const DIRECT = 'DIRECT';
     const REFUND = 'REFUND';

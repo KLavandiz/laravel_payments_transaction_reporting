@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Facade\MessageFacade;
-use App\Facade\OperationFacade;
-use App\Facade\StatusFacade;
+use App\Enum\MessageEnum;
+use App\Enum\OperationEnum;
+use App\Enum\StatusEnum;
 use App\Models\Acquirer;
 use App\Models\Agent;
 use App\Models\Client;
@@ -25,9 +25,9 @@ class TransactionFactory extends Factory
      */
     public function definition(): array
     {
-        $status = [StatusFacade::APPROVED, StatusFacade::DECLINED, StatusFacade::ERROR, StatusFacade::WAITING];
-        $operation = [OperationFacade::STORED, OperationFacade::DIRECT, OperationFacade::REFUND, OperationFacade::THREED];
-        $message = [MessageFacade::INVALID_TRANSACTION, MessageFacade::INVALID_CARD, MessageFacade::DONT_HONOR, MessageFacade::NO_SUFFICIENT_BALANCE];
+        $status = [StatusEnum::APPROVED, StatusEnum::DECLINED, StatusEnum::ERROR, StatusEnum::WAITING];
+        $operation = [OperationEnum::STORED, OperationEnum::DIRECT, OperationEnum::REFUND, OperationEnum::THREED];
+        $message = [MessageEnum::INVALID_TRANSACTION, MessageEnum::INVALID_CARD, MessageEnum::DONT_HONOR, MessageEnum::NO_SUFFICIENT_BALANCE];
         return [
             'reference_no' => Str::random(10),
             'merchant_id' => Merchant::all('id')->random(1)->first(),

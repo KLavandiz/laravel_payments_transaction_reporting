@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Facade;
+namespace App\Enum;
 
-class MethodFacade
+enum MethodEnum
 {
 
     const CREDITCARD = 'CREDITCARD';

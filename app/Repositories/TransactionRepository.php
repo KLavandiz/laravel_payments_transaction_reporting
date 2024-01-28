@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 
 use App\Exceptions\GeneralException;
-use App\Facade\FilterFacade;
-use App\Facade\StatusFacade;
+use App\Enum\FilterEnum;
+use App\Enum\StatusEnum;
 use App\Filters\CustomFilters;
 use App\Filters\Transaction\ListFilters;
 use App\Http\Resources\Transaction\ReportCollection;
@@ -39,7 +39,7 @@ class TransactionRepository implements ITransaction
      */
     public function getList(Request $request): TransactionCollection
     {
-        $safeKeyArray = FilterFacade::FILTER_FIELDS;
+        $safeKeyArray = FilterEnum::FILTER_FIELDS;
         $filterField = data_get($request, 'filterField', -1);
         $filterValue = data_get($request, 'filterValue', -1);
 
@@ -99,7 +99,7 @@ class TransactionRepository implements ITransaction
         $acquirerParameters = $filter->getAcquirersQuery($request);
 
         $report = Transaction::join('foreign_exchanges', 'transactions.fx_transaction_id', '=', 'foreign_exchanges.id')
-            ->where('transactions.status', StatusFacade::APPROVED)->where($transParameters)->
+            ->where('transactions.status', StatusEnum::APPROVED)->where($transParameters)->
             whereHas('acquirer', function ($query) use ($acquirerParameters) {
                 $query->where($acquirerParameters);
             })

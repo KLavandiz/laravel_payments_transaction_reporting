@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Facade;
+namespace App\Enum;
 
-class FilterFacade
+enum FilterEnum
 {
     const FILTER_FIELDS = array(
         "Transaction UUID"=>array('id'=>'transactions'),

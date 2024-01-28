@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Facade;
+namespace App\Enum;
 
 use Illuminate\Support\Facades\Facade;
 
-class StatusFacade extends Facade
+enum StatusEnum
 {
     const APPROVED = 'APPROVED';
     const WAITING = 'WAITING';
