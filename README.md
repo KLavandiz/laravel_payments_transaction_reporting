@@ -9,4 +9,4 @@ Passord : :cjaiU8CV
 https://lavandiz.com/api/public/api/v3/transactions <br/>
 https://lavandiz.com/api/public/api/v3/transactions/report <br/>
 https://lavandiz.com/api/public/api/v3/transactions/list <br/>
-https://lavandiz.com/api/public/api/v3/transactions/client <br/>
+https://lavandiz.com/api/public/api/v3/client <br/>
