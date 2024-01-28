@@ -30,7 +30,7 @@ Route::group(['prefix' => 'v3', 'namespace' => 'App\Http\Controllers\Api\V3'], f
 
             Route::post('report', [TransactionsController::class, 'report'])->name('transactions_report');
             Route::post('list', [TransactionsController::class, 'list'])->name('transactions_list');
-            Route::get('/', [TransactionsController::class, 'transaction'])->name('transactions_list');
+            Route::post('/', [TransactionsController::class, 'transaction'])->name('transactions_list');
 
         });
 
